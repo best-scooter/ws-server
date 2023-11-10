@@ -109,7 +109,10 @@ Kunder bör bara ha tillgång till att se tillgängliga elsparkcyklar på kartan
 
 ### ➡️ UT scooter
 
-`scooterLimited`
+#### scooterLimited
+
+Detta abonnemang är till för kundernas karta och ska bara visa cyklar som är parkerade, tillgängliga och har batterinivå över 50%.
+
 ```typescript
 {
     message: "scooter",
@@ -119,7 +122,8 @@ Kunder bör bara ha tillgång till att se tillgängliga elsparkcyklar på kartan
 }
 ```
 
-`scooter`
+#### scooter
+
 ```typescript
 {
     message: "scooter",
