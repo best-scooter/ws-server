@@ -36,7 +36,7 @@ admins
 
 ### scooterPosition
 
-Admins från alla elsparkcyklars position. Kunder från enbart parkerade cyklars position.
+Admins från alla elsparkcyklars position. Kunder från enbart parkerade och laddade (> 50% laddning) cyklars position.
 
 ### scooterPark
 
