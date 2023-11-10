@@ -11,7 +11,7 @@ Det andra flödet är till för att admins och kunder ska kunna abonnera på inf
 ## API-referens
 
 - [Verifiering av klient](#verifiering-av-klient)
-  - [IN verify](#-in-verify)
+  - [IN verify](#⬅️-in-verify)
   - [UT verify](#-ut-verify)
 - [Skicka uppdateringar från klient](#skicka-uppdateringar-från-klient)
   - [IN customer](#-in-customer)
