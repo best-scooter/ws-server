@@ -28,12 +28,20 @@ admins
 
 ### customerShow
 
+admins
+
 ### customerHide
+
+admins
 
 ### scooterPosition
 
-admins/kunder
+Admins från alla elsparkcyklars position. Kunder från enbart parkerade cyklars position.
 
 ### scooterPark
 
+admins
+
 ### scooterUnpark
+
+admins
