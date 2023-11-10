@@ -1,6 +1,6 @@
 # ws-server
 
-## ➡️ In
+## client ➡️ server
 
 ### verificate
 
@@ -16,7 +16,7 @@
 
 ### tripEnd
 
-## ➡️ Ut
+## server ➡️ client
 
 ### verificateConfirm
 
