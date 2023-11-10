@@ -8,6 +8,23 @@ Det första flödet handlar om att skicka uppdateringar till WebSocket-servern f
 
 Det andra flödet är till för att admins och kunder ska kunna abonnera på information som de behöver för sin användning av systemet, huvudsakligen för att få en karta som uppdateras i realtid.
 
+## API-referens
+
+- [Verifiering av klient](#verifiering-av-klient)
+  - [IN verify](#-in-verify)
+  - [UT verify](#-ut-verify)
+- [Skicka uppdateringar från klient](#skicka-uppdateringar-från-klient)
+  - [IN customer](#-in-customer)
+  - [IN scooter](#-in-scooter)
+  - [IN tripStart](#-in-tripstart)
+  - [IN tripEnd](#-in-tripend)
+  - [IN trip](#-in-trip)
+- [Abonnera på uppdateringar från servern](#abonnera-på-uppdateringar-från-servern)
+  - [IN subscribe](#-in-subscribe)
+  - [UT scooter](#-ut-scooter)
+  - [UT customer](#-ut-customer)
+  - [UT trip](#-ut-trip)
+
 ## Verifiering av klient
 
 ### ⬅️ IN verify
