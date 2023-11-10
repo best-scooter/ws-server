@@ -11,19 +11,19 @@ Det andra flödet är till för att admins och kunder ska kunna abonnera på inf
 ## API-referens
 
 - [Verifiering av klient](#verifiering-av-klient)
-  - [IN verify](#⬅️-in-verify)
-  - [UT verify](#-ut-verify)
+  - [IN verify](#%EF%B8%8F-in-verify)
+  - [UT verify](#%EF%B8%8F-ut-verify)
 - [Skicka uppdateringar från klient](#skicka-uppdateringar-från-klient)
-  - [IN customer](#-in-customer)
-  - [IN scooter](#-in-scooter)
-  - [IN tripStart](#-in-tripstart)
-  - [IN tripEnd](#-in-tripend)
-  - [IN trip](#-in-trip)
+  - [IN customer](#%EF%B8%8F-in-customer)
+  - [IN scooter](#%EF%B8%8F-in-scooter)
+  - [IN tripStart](#%EF%B8%8F-in-tripstart)
+  - [IN tripEnd](#%EF%B8%8F-in-tripend)
+  - [IN trip](#%EF%B8%8F-in-trip)
 - [Abonnera på uppdateringar från servern](#abonnera-på-uppdateringar-från-servern)
-  - [IN subscribe](#-in-subscribe)
-  - [UT scooter](#-ut-scooter)
-  - [UT customer](#-ut-customer)
-  - [UT trip](#-ut-trip)
+  - [IN subscribe](#%EF%B8%8F-in-subscribe)
+  - [UT scooter](#%EF%B8%8F-ut-scooter)
+  - [UT customer](#%EF%B8%8F-ut-customer)
+  - [UT trip](#%EF%B8%8F-ut-trip)
 
 ## Verifiering av klient
 
