@@ -8,50 +8,129 @@ Det första flödet handlar om att skicka uppdateringar till WebSocket-servern f
 
 Det andra flödet är till för att admins och kunder ska kunna abonnera på information som de behöver för sin användning av systemet, huvudsakligen för att få en karta som uppdateras i realtid.
 
-## client ➡️ server
+## Verifiering av klient
 
-:arrow_left: ⬅️
+### ⬅️ IN verify
 
-### verificate
+```typescript
+{
+    message: "verify",
+    token: string
+}
+```
 
-### customerPosition
+### ➡️ UT verify
 
-### scooterPosition
+```typescript
+{
+    message: "verify",
+    verified: boolean
+}
+```
 
-### scooterParking
+## Skicka uppdateringar från resurs
 
-### tripStart
+### ⬅️ IN customer
 
-### tripPosition
+```typescript
+{
+    message: "customer",
+    position?: [number, number]
+}
+```
 
-### tripEnd
+### ⬅️ IN scooter
 
-## server ➡️ client
+```typescript
+{
+    message: "scooter",
+    position?: [number, number],
+    battery?: number,
+    status?: string,
+    charging?: boolean
+}
+```
 
-### verificateConfirm
+### ⬅️ IN tripStart
 
-any
+```typescript
+{
+    message: "tripStart",
+    scooterId: number
+}
+```
 
-### customerPosition
+### ⬅️ IN tripEnd
 
-admins
+```typescript
+{
+    message: "tripEnd",
+    scooterId: number,
+    parkedCharging: boolean
+}
+```
 
-### customerShow
+### ⬅️ IN trip
 
-admins
+`routeAppend` lägger till nya punkter till resans rutt, `route` ersätter hela resans rutt.
 
-### customerHide
+> [!WARNING]
+> Använd inte `routeAppend` och `route` i samma PUT, det kan få oförutsedda resultat.
 
-admins
 
-### scooterPosition
+```typescript
+{
+    message: "trip",
+    distance?: number,
+    route?: [number, number][],
+    routeAppend?: [number, number][]
+}
+```
 
-Admins från alla elsparkcyklars position. Kunder från enbart parkerade och laddade (> 50% laddning) cyklars position.
+## Abonnera på uppdateringar från system
 
-### scooterPark
+### ⬅️ IN subscribe
 
-admins
+Ange vilken information du vill abonnera i `subscriptions`. Giltiga alternativ är:
 
-### scooterUnpark
+- `scooterLimited`
+- `scooter`
+- `customer`
+- `trip`
 
-admins
+Kunder bör bara ha tillgång till att se tillgängliga elsparkcyklar på kartan, då finns scooterLimited som bara ger begränsad information om elsparkcyklar.
+
+```typescript
+{
+    message: "subscribe",
+    subscriptions: string[]
+}
+```
+
+### ➡️ UT scooter
+
+```typescript
+{
+    message: "",
+
+}
+```
+
+### ➡️ UT customer
+
+```typescript
+{
+    message: "",
+
+}
+```
+
+### ➡️ UT trip
+
+
+```typescript
+{
+    message: "",
+
+}
+```
