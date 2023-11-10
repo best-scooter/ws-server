@@ -28,7 +28,7 @@ Det andra flödet är till för att admins och kunder ska kunna abonnera på inf
 }
 ```
 
-## Skicka uppdateringar från resurs
+## Skicka uppdateringar från klient
 
 ### ⬅️ IN customer
 
@@ -87,7 +87,7 @@ Det andra flödet är till för att admins och kunder ska kunna abonnera på inf
 }
 ```
 
-## Abonnera på uppdateringar från system
+## Abonnera på uppdateringar från servern
 
 ### ⬅️ IN subscribe
 
@@ -109,10 +109,25 @@ Kunder bör bara ha tillgång till att se tillgängliga elsparkcyklar på kartan
 
 ### ➡️ UT scooter
 
+`scooterLimited`
 ```typescript
 {
-    message: "",
+    message: "scooter",
+    position?: [number, number],
+    battery?: number,
+    remove?: boolean
+}
+```
 
+`scooter`
+```typescript
+{
+    message: "scooter",
+    position?: [number, number],
+    battery?: number,
+    status?: string,
+    charging?: boolean,
+    remove?: boolean
 }
 ```
 
@@ -120,8 +135,8 @@ Kunder bör bara ha tillgång till att se tillgängliga elsparkcyklar på kartan
 
 ```typescript
 {
-    message: "",
-
+    message: "customer",
+    position?: [number, number]
 }
 ```
 
@@ -130,7 +145,10 @@ Kunder bör bara ha tillgång till att se tillgängliga elsparkcyklar på kartan
 
 ```typescript
 {
-    message: "",
-
+    message: "trip",
+    timeStarted: string,
+    timeEnded: string,
+    distance: number,
+    route: [number, number][]
 }
 ```
