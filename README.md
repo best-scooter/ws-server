@@ -10,7 +10,7 @@ Det andra flödet är till för att admins och kunder ska kunna abonnera på inf
 
 ## client ➡️ server
 
-:arrow_left:
+:arrow_left: ⬅️
 
 ### verificate
 
