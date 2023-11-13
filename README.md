@@ -110,10 +110,10 @@ Det andra flödet är till för att admins och kunder ska kunna abonnera på inf
 
 Ange vilken information du vill abonnera i `subscriptions`. Giltiga alternativ är:
 
-- `scooterLimited`
-- `scooter`
-- `customer`
-- `trip`
+- `"scooterLimited"`
+- `"scooter"`
+- `"customer"`
+- `"trip"`
 
 Kunder bör bara ha tillgång till att se tillgängliga elsparkcyklar på kartan, då finns scooterLimited som bara ger begränsad information om elsparkcyklar.
 
