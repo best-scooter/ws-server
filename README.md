@@ -32,15 +32,23 @@ Kör lintern.
 
 ### `npm run build`
 
-Build the project for production.
+Bygg projektet för production.
 
 ### `npm start`
 
-Run the production build (Must be built first).
+Kör production-builden (måste vara byggt först).
 
 ### `npm start -- --env="name of env file" (default is production).`
 
-Run production build with a different env file.
+Kör production-builden med en annan .env-fil.
+
+### `npm run docker:build`
+
+Bygger appen och bygger imagen.
+
+### `npm run docker:push`
+
+Pushar imagen till ACR.
 
 ## API-referens
 
