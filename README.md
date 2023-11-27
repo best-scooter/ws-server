@@ -12,23 +12,23 @@ Det andra flödet är till för att admins och kunder ska kunna abonnera på inf
 
 ### `npm run dev`
 
-Run the server in development mode.
+Kör servern i development mode.
 
 ### `npm test`
 
-Run all unit-tests with hot-reloading.
+Kör all enhetstester med hot-reloading.
 
 ### `npm test -- --testFile="name of test file" (i.e. --testFile=Users).`
 
-Run a single unit-test.
+Kör ett enskild enhetstest.
 
 ### `npm run test:no-reloading`
 
-Run all unit-tests without hot-reloading.
+Kör alla tester utan hot-reloading.
 
 ### `npm run lint`
 
-Check for linting errors.
+Kör lintern.
 
 ### `npm run build`
 
