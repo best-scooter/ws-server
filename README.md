@@ -121,7 +121,8 @@ Pushar imagen till ACR.
     message: "trip",
     distance?: number,
     route?: [number, number][],
-    routeAppend?: [number, number][]
+    routeAppend?: [number, number][],
+    parkedCharging?: boolean
 }
 ```
 
