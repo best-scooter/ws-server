@@ -52,9 +52,6 @@ Pushar imagen till ACR.
 
 ## API-referens
 
-- [Verifiering av klient](#verifiering-av-klient)
-  - [IN verify](#%EF%B8%8F-in-verify)
-  - [UT verify](#%EF%B8%8F-ut-verify)
 - [Skicka uppdateringar från klient](#skicka-uppdateringar-från-klient)
   - [IN customer](#%EF%B8%8F-in-customer)
   - [IN scooter](#%EF%B8%8F-in-scooter)
@@ -66,26 +63,6 @@ Pushar imagen till ACR.
   - [UT scooter](#%EF%B8%8F-ut-scooter)
   - [UT customer](#%EF%B8%8F-ut-customer)
   - [UT trip](#%EF%B8%8F-ut-trip)
-
-## Verifiering av klient
-
-### ⬅️ IN verify
-
-```typescript
-{
-    message: "verify",
-    token: string
-}
-```
-
-### ➡️ UT verify
-
-```typescript
-{
-    message: "verify",
-    verified: boolean
-}
-```
 
 ## Skicka uppdateringar från klient
 
