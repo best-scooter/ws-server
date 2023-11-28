@@ -94,7 +94,7 @@ Pushar imagen till ACR.
 ```typescript
 {
     message: "customer",
-    position?: [number, number]
+    position: [number, number]
 }
 ```
 
