@@ -82,8 +82,11 @@ Pushar imagen till ACR.
     message: "scooter",
     position?: [number, number],
     battery?: number,
-    status?: string,
-    charging?: boolean
+    charging?: boolean,
+    available?: boolean,
+    decomissioned?: boolean,
+    beingServiced?: boolean,
+    disabled?: boolean
 }
 ```
 
@@ -165,8 +168,12 @@ Detta abonnemang är till för kundernas karta och ska bara visa cyklar som är 
     message: "scooter",
     position?: [number, number],
     battery?: number,
-    status?: string,
     charging?: boolean,
+    available?: boolean,
+    decomissioned?: boolean,
+    beingServiced?: boolean,
+    disabled?: boolean,
+    connected?: boolean,
     remove?: boolean
 }
 ```
@@ -176,7 +183,8 @@ Detta abonnemang är till för kundernas karta och ska bara visa cyklar som är 
 ```typescript
 {
     message: "customer",
-    position?: [number, number]
+    position?: [number, number],
+    remove?: boolean
 }
 ```
 
@@ -186,9 +194,9 @@ Detta abonnemang är till för kundernas karta och ska bara visa cyklar som är 
 ```typescript
 {
     message: "trip",
-    timeStarted: string,
-    timeEnded: string,
-    distance: number,
-    route: [number, number][]
+    timeStarted?: string,
+    timeEnded?: string,
+    distance?: number,
+    route?: [number, number][]
 }
 ```
