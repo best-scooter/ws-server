@@ -107,8 +107,7 @@ Pushar imagen till ACR.
 ```typescript
 {
     message: "tripEnd",
-    customerId: number,
-    scooterId: number
+    tripId: number
 }
 ```
 
