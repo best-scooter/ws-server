@@ -201,6 +201,8 @@ Detta abonnemang är till för kundernas karta och ska bara visa cyklar som är 
 ```typescript
 {
     message: "trip",
+    scooterId: number,
+    customerId: number,
     tripId: number,
     timeStarted?: string,
     timeEnded?: string,
