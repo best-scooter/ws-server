@@ -71,6 +71,7 @@ Pushar imagen till ACR.
 ```typescript
 {
     message: "customer",
+    customerId: number,
     position: [number, number]
 }
 ```
@@ -80,6 +81,7 @@ Pushar imagen till ACR.
 ```typescript
 {
     message: "scooter",
+    scooterId: number,
     position?: [number, number],
     battery?: number,
     charging?: boolean,
@@ -95,6 +97,7 @@ Pushar imagen till ACR.
 ```typescript
 {
     message: "tripStart",
+    customerId: number,
     scooterId: number
 }
 ```
@@ -104,6 +107,7 @@ Pushar imagen till ACR.
 ```typescript
 {
     message: "tripEnd",
+    customerId: number,
     scooterId: number
 }
 ```
@@ -119,6 +123,7 @@ Pushar imagen till ACR.
 ```typescript
 {
     message: "trip",
+    tripId: number,
     distance?: number,
     route?: [number, number][],
     routeAppend?: [number, number][],
@@ -155,6 +160,7 @@ Detta abonnemang är till för kundernas karta och ska bara visa cyklar som är 
 ```typescript
 {
     message: "scooter",
+    scooterId: number,
     position?: [number, number],
     battery?: number,
     remove?: boolean
@@ -166,6 +172,7 @@ Detta abonnemang är till för kundernas karta och ska bara visa cyklar som är 
 ```typescript
 {
     message: "scooter",
+    scooterId: number,
     position?: [number, number],
     battery?: number,
     charging?: boolean,
@@ -183,6 +190,7 @@ Detta abonnemang är till för kundernas karta och ska bara visa cyklar som är 
 ```typescript
 {
     message: "customer",
+    customerId: number,
     position?: [number, number],
     remove?: boolean
 }
@@ -194,6 +202,7 @@ Detta abonnemang är till för kundernas karta och ska bara visa cyklar som är 
 ```typescript
 {
     message: "trip",
+    tripId: number,
     timeStarted?: string,
     timeEnded?: string,
     distance?: number,
