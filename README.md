@@ -72,7 +72,8 @@ Pushar imagen till ACR.
 {
     message: "customer",
     customerId: number,
-    position: [number, number]
+    positionX: number,
+    positionY: number
 }
 ```
 
@@ -82,7 +83,8 @@ Pushar imagen till ACR.
 {
     message: "scooter",
     scooterId: number,
-    position?: [number, number],
+    positionX?: number,
+    positionY?: number,
     battery?: number,
     charging?: boolean,
     available?: boolean,
@@ -160,7 +162,8 @@ Detta abonnemang är till för kundernas karta och ska bara visa cyklar som är 
 {
     message: "scooter",
     scooterId: number,
-    position?: [number, number],
+    positionX?: number
+    positionY?: number,
     battery?: number,
     remove?: boolean
 }
@@ -172,7 +175,8 @@ Detta abonnemang är till för kundernas karta och ska bara visa cyklar som är 
 {
     message: "scooter",
     scooterId: number,
-    position?: [number, number],
+    positionX?: number
+    positionY?: number,
     battery?: number,
     charging?: boolean,
     available?: boolean,
@@ -190,7 +194,8 @@ Detta abonnemang är till för kundernas karta och ska bara visa cyklar som är 
 {
     message: "customer",
     customerId: number,
-    position?: [number, number],
+    positionX?: number,
+    positionY?: number,
     remove?: boolean
 }
 ```
