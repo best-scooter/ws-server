@@ -162,7 +162,7 @@ Detta abonnemang är till för kundernas karta och ska bara visa cyklar som är 
 {
     message: "scooter",
     scooterId: number,
-    positionX?: number
+    positionX?: number,
     positionY?: number,
     battery?: number,
     remove?: boolean
@@ -175,7 +175,7 @@ Detta abonnemang är till för kundernas karta och ska bara visa cyklar som är 
 {
     message: "scooter",
     scooterId: number,
-    positionX?: number
+    positionX?: number,
     positionY?: number,
     battery?: number,
     charging?: boolean,
