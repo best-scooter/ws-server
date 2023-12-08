@@ -52,9 +52,6 @@ Pushar imagen till ACR.
 
 ## API-referens
 
-- [Verifiering av klient](#verifiering-av-klient)
-  - [IN verify](#%EF%B8%8F-in-verify)
-  - [UT verify](#%EF%B8%8F-ut-verify)
 - [Skicka uppdateringar från klient](#skicka-uppdateringar-från-klient)
   - [IN customer](#%EF%B8%8F-in-customer)
   - [IN scooter](#%EF%B8%8F-in-scooter)
@@ -67,26 +64,6 @@ Pushar imagen till ACR.
   - [UT customer](#%EF%B8%8F-ut-customer)
   - [UT trip](#%EF%B8%8F-ut-trip)
 
-## Verifiering av klient
-
-### ⬅️ IN verify
-
-```typescript
-{
-    message: "verify",
-    token: string
-}
-```
-
-### ➡️ UT verify
-
-```typescript
-{
-    message: "verify",
-    verified: boolean
-}
-```
-
 ## Skicka uppdateringar från klient
 
 ### ⬅️ IN customer
@@ -94,7 +71,9 @@ Pushar imagen till ACR.
 ```typescript
 {
     message: "customer",
-    position?: [number, number]
+    customerId: number,
+    positionX: number,
+    positionY: number
 }
 ```
 
@@ -103,10 +82,15 @@ Pushar imagen till ACR.
 ```typescript
 {
     message: "scooter",
-    position?: [number, number],
+    scooterId: number,
+    positionX?: number,
+    positionY?: number,
     battery?: number,
-    status?: string,
-    charging?: boolean
+    charging?: boolean,
+    available?: boolean,
+    decomissioned?: boolean,
+    beingServiced?: boolean,
+    disabled?: boolean
 }
 ```
 
@@ -115,6 +99,7 @@ Pushar imagen till ACR.
 ```typescript
 {
     message: "tripStart",
+    customerId: number,
     scooterId: number
 }
 ```
@@ -124,8 +109,7 @@ Pushar imagen till ACR.
 ```typescript
 {
     message: "tripEnd",
-    scooterId: number,
-    parkedCharging: boolean
+    tripId: number
 }
 ```
 
@@ -140,9 +124,11 @@ Pushar imagen till ACR.
 ```typescript
 {
     message: "trip",
+    tripId: number,
     distance?: number,
     route?: [number, number][],
-    routeAppend?: [number, number][]
+    routeAppend?: [number, number][],
+    parkedCharging?: boolean
 }
 ```
 
@@ -175,7 +161,9 @@ Detta abonnemang är till för kundernas karta och ska bara visa cyklar som är 
 ```typescript
 {
     message: "scooter",
-    position?: [number, number],
+    scooterId: number,
+    positionX?: number,
+    positionY?: number,
     battery?: number,
     remove?: boolean
 }
@@ -186,10 +174,16 @@ Detta abonnemang är till för kundernas karta och ska bara visa cyklar som är 
 ```typescript
 {
     message: "scooter",
-    position?: [number, number],
+    scooterId: number,
+    positionX?: number,
+    positionY?: number,
     battery?: number,
-    status?: string,
     charging?: boolean,
+    available?: boolean,
+    decomissioned?: boolean,
+    beingServiced?: boolean,
+    disabled?: boolean,
+    connected?: boolean,
     remove?: boolean
 }
 ```
@@ -199,7 +193,10 @@ Detta abonnemang är till för kundernas karta och ska bara visa cyklar som är 
 ```typescript
 {
     message: "customer",
-    position?: [number, number]
+    customerId: number,
+    positionX?: number,
+    positionY?: number,
+    remove?: boolean
 }
 ```
 
@@ -209,9 +206,12 @@ Detta abonnemang är till för kundernas karta och ska bara visa cyklar som är 
 ```typescript
 {
     message: "trip",
-    timeStarted: string,
-    timeEnded: string,
-    distance: number,
-    route: [number, number][]
+    scooterId: number,
+    customerId: number,
+    tripId: number,
+    timeStarted?: string,
+    timeEnded?: string,
+    distance?: number,
+    route?: [number, number][]
 }
 ```
