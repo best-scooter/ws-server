@@ -91,8 +91,8 @@ function sendAllScootersLimited(client: Client) {
 
     for (const scooter of scooters) {
         if (scooter === undefined) { continue; }
+
         if (_isScooterReadyToUse(scooter)) {
-            console.log("hit")
             const message = JSON.stringify({
                 message: "scooter",
                 scooterId: scooter.scooterId,
@@ -110,7 +110,7 @@ function sendAllTrips(client: Client) {
 
     for (const trip of trips) {
         if (trip === undefined) { continue; }
-        console.log(trip)
+
         const message = JSON.stringify({
             message: "trip",
             ...trip
@@ -125,6 +125,7 @@ function sendAllCustomers(client: Client) {
 
     for (const customer of customers) {
         if (customer === undefined) { continue; }
+
         const message = JSON.stringify({
             message: "customer",
             ...customer
