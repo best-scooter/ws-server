@@ -78,6 +78,8 @@ function sendAllScooters(client: Client) {
     const scooters = systemState.getState("scooters").slice(1)
 
     for (const scooter of scooters) {
+        if (scooter === undefined) { continue; }
+
         const message = JSON.stringify({
             message: "scooter",
             ...scooter

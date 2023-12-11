@@ -52,7 +52,7 @@ const tripStateSchema = {
             }
         }
     },
-    "required": ["scooterId", "tripId", "customerId"]
+    "required": ["tripId"]
 }
 
 export {

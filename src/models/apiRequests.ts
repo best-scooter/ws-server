@@ -8,15 +8,16 @@ import { adminJwt } from "./systemState";
 // **** Helper functions **** //
 
 async function _httpPut(url: string, data: any, token: string) {
-    // console.log(data)
-    return await fetch(url, {
+    return fetch(url, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
             "X-Access-Token": token
         },
         body: JSON.stringify(data)
-    })
+    }).then((response) => {
+        return response;
+    });
 }
 
 async function _httpPost(url: string, data: any, token: string) {

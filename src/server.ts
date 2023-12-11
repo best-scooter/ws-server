@@ -28,29 +28,30 @@ const clientStore = new ClientStore();
 wsServer.on('request', requestHandler);
 stateInitialise();
 
-if (EnvVars.NodeEnv === NodeEnvs.Dev.valueOf()) {
-    setInterval(() => {
-        logger.info(
-            "Subscribers: " + clientStore.all.length +
-            "\tscooter: " + clientStore.subscribed.scooter.length +
-            "\tscooterLimited: " + clientStore.subscribed.scooterLimited.length +
-            "\tcustomer: " + clientStore.subscribed.customer.length +
-            "\ttrip:" + clientStore.subscribed.trip.length
-        );
+// visar lite statusinfo varannan sekund
+// if (EnvVars.NodeEnv === NodeEnvs.Dev.valueOf()) {
+//     setInterval(() => {
+//         logger.info(
+//             "Subscribers: " + clientStore.all.length +
+//             "\tscooter: " + clientStore.subscribed.scooter.length +
+//             "\tscooterLimited: " + clientStore.subscribed.scooterLimited.length +
+//             "\tcustomer: " + clientStore.subscribed.customer.length +
+//             "\ttrip:" + clientStore.subscribed.trip.length
+//         );
 
-        const scooterCount = systemState.getState("scooters").slice(1).length
-        const customerCount = systemState.getState("customers").slice(1).length
-        const tripCount = systemState.getState("trips").slice(1).length
+//         const scooterCount = systemState.getState("scooters").slice(1).length
+//         const customerCount = systemState.getState("customers").slice(1).length
+//         const tripCount = systemState.getState("trips").slice(1).length
 
-        logger.info(
-            "Scooters: " + scooterCount +
-            "\tCustomers:" + customerCount +
-            "\t\tTrips:" + tripCount
-        );
+//         logger.info(
+//             "Scooters: " + scooterCount +
+//             "\tCustomers:" + customerCount +
+//             "\t\tTrips:" + tripCount
+//         );
 
-        // console.log(systemState.getState("scooters"));
-    }, 2000);
-}
+//         // console.log(systemState.getState("scooters"));
+//     }, 2000);
+// }
 
 // // **** Export default **** //
 
