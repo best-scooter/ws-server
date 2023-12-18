@@ -23,7 +23,7 @@ async function _httpGetAll(endpoint: string, token: string) {
 }
 
 function _stateFetch(token: string) {
-    _httpGetAll("scooter", token).then((scooterData: any) => {
+    _httpGetAll("v1/scooter", token).then((scooterData: any) => {
         for (const scooter of scooterData.data) {
             if (
                 validate(scooter, scooterStateSchema).valid &&
@@ -35,7 +35,7 @@ function _stateFetch(token: string) {
         }
     });
 
-    _httpGetAll("customer", token).then((customerData: any) => {
+    _httpGetAll("v1/customer", token).then((customerData: any) => {
         for (const customer of customerData.data) {
             if (
                 validate(customer, customerStateSchema).valid &&
@@ -46,7 +46,7 @@ function _stateFetch(token: string) {
         }
     });
 
-    _httpGetAll("trip", token).then((tripData: any) => {
+    _httpGetAll("v1/trip", token).then((tripData: any) => {
         for (const trip of tripData.data) {
             if (
                 validate(trip, tripStateSchema).valid && 
@@ -68,7 +68,7 @@ function _stateFetch(token: string) {
 const systemState = new SystemState();
 
 function stateInitialise() {
-    fetch(EnvVars.ApiHost + "admin/token", {
+    fetch(EnvVars.ApiHost + "v1/admin/token", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

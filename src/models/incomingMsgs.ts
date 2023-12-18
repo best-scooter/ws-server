@@ -93,7 +93,7 @@ function receiveScooter(data: any, client: Client) {
     }
 
     sendScooter(data);
-    putScooter(data.scooterId, data, client.token);
+    // putScooter(data.scooterId, data, client.token);
     systemState.addClientData("scooters", data);
 }
 
@@ -106,7 +106,7 @@ function receiveCustomer(data: any, client: Client) {
         return;
     }
 
-    putCustomer(data.scooterId, data, client.token);
+    // putCustomer(data.scooterId, data, client.token);
     sendCustomer(data);
     systemState.addClientData("customers", data);
 }
@@ -120,7 +120,7 @@ function receiveTrip(data: any, client: Client) {
         return;
     }
 
-    putTrip(data.tripId, data, client.token);
+    // putTrip(data.tripId, data, client.token);
 
     const tripState = systemState.getState("trips")[data.tripId];
     const arrangedData = _arrangeRoute(data as MessageData, tripState as TripState);
@@ -143,10 +143,7 @@ async function receiveTripStart(data: any, client: Client) {
         tripId: 0,
         scooterId: data.scooterId,
         customerId: data.customerId,
-        startPosition: position,
-        priceInitial: EnvVars.PriceInitial,
-        priceTime: EnvVars.PriceTime,
-        priceDistance: EnvVars.PriceDistance
+        startPosition: position
     };
     const postResult = await postTrip(arrangedData, client.token);
     const tripId = postResult.tripId;
@@ -167,18 +164,18 @@ function receiveTripEnd(data: any, client: Client) {
     }
 
     const tripId = data.tripId;
-    const now = new Date().toJSON()
+    // const now = new Date().toJSON()
 
-    console.log(tripId)
-    console.log(now)
+    // console.log(tripId)
+    // console.log(now)
 
-    putTrip(
-        tripId,
-        {
-            timeEnded: now
-        },
-        client.token
-    );
+    // putTrip(
+    //     tripId,
+    //     {
+    //         timeEnded: now
+    //     },
+    //     client.token
+    // );
     sendTrip({
         trip: tripId,
         remove: true

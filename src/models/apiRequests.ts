@@ -54,7 +54,7 @@ async function _httpGet(url: string) {
 
 async function putScooter(scooterId: number, data: ScooterState, token: string) {
     return await _httpPut(
-        `${EnvVars.ApiHost}scooter/${scooterId}`,
+        `${EnvVars.ApiHost}v1/scooter/${scooterId}`,
         data,
         token
     )
@@ -62,7 +62,7 @@ async function putScooter(scooterId: number, data: ScooterState, token: string) 
 
 async function putCustomer(customerId: number, data: CustomerState, token: string) {
     return await _httpPut(
-        `${EnvVars.ApiHost}customer/${customerId}`,
+        `${EnvVars.ApiHost}v1/customer/${customerId}`,
         data,
         token
     )
@@ -70,27 +70,27 @@ async function putCustomer(customerId: number, data: CustomerState, token: strin
 
 async function putTrip(tripId: number, data: TripState, token: string) {
     return await _httpPut(
-        `${EnvVars.ApiHost}trip/${tripId}`,
+        `${EnvVars.ApiHost}v1/trip/${tripId}`,
         data,
         token
     )
 }
 
 async function getScooterPosition(scooterId: number) {
-    const result = await _httpGet(`${EnvVars.ApiHost}scooter/${scooterId}`);
+    const result = await _httpGet(`${EnvVars.ApiHost}v1/scooter/${scooterId}`);
 
     return [result.data.positionX, result.data.positionY];
 }
 
 async function getTrip(tripId: number) {
-    const result = await _httpGet(`${EnvVars.ApiHost}trip/${tripId}`);
+    const result = await _httpGet(`${EnvVars.ApiHost}v1/trip/${tripId}`);
 
     return result.data;
 }
 
 async function postTrip(data: TripState, token: string) {
     const result = await _httpPost(
-        `${EnvVars.ApiHost}trip/${data.tripId}`,
+        `${EnvVars.ApiHost}v1/trip/${data.tripId}`,
         data,
         token
     );
