@@ -2,8 +2,7 @@ type CustomerState = {
     customerId?: number,
     customerEmail?: string,
     positionX?: number,
-    positionY?: number,
-    connected?: boolean
+    positionY?: number
 }
 
 type ScooterState = {

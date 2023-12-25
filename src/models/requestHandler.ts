@@ -42,7 +42,6 @@ function _onClose(this: {client: Client}) {
             customerId,
             remove: true
         });
-        apiRequests.putCustomer(customerId, {connected: false}, adminJwt);
 
         // remove all trips for customer
         for (const trip of systemState.getState("trips") as Array<TripState>) {

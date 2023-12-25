@@ -6,6 +6,7 @@ import type { ClientInfo } from "../types/ClientInfo";
 
 import EnvVars from "../constants/EnvVars";
 import { scooterPayloadSchema, customerPayloadSchema, adminPayloadSchema } from "../jsonschemas/payloadData";
+import apiRequests from "@src/models/apiRequests";
 
 // **** Variables **** //
 
@@ -37,6 +38,7 @@ class Client {
             this.info = {
                 scooterId: payload.id
             };
+            apiRequests.putScooter(payload.id, {connected: true}, token);
         } else if (validate(payload, adminPayloadSchema).valid) {
             this.info = {
                 adminUsername: payload.adminUsername,
