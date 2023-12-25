@@ -90,7 +90,8 @@ Pushar imagen till ACR.
     available?: boolean,
     decomissioned?: boolean,
     beingServiced?: boolean,
-    disabled?: boolean
+    disabled?: boolean,
+    currentSpeed?: number
 }
 ```
 
@@ -184,7 +185,8 @@ Detta abonnemang är till för kundernas karta och ska bara visa cyklar som är 
     beingServiced?: boolean,
     disabled?: boolean,
     connected?: boolean,
-    remove?: boolean
+    remove?: boolean,
+    currentSpeed: number
 }
 ```
 
