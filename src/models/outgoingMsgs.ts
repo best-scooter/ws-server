@@ -61,6 +61,12 @@ return (
 function sendScooter(data: any) {
     const message = JSON.stringify(data);
     _send("scooter", message);
+    if (data.available === false) {
+        data = {
+            ...data,
+            remove: true
+        }
+    }
     _sendLimitedScooter(data);
 }
 
@@ -143,6 +149,13 @@ function sendTripStart(client: Client, responseBody: any) {
     }));
 }
 
+function sendTripEnd(client: Client, data: {tripId: number, customerId: number, scooterId: number}) {
+    _send("trip", JSON.stringify({
+        message: "tripEnd",
+        ...data
+    }));
+}
+
 // **** Exports **** //
 
 export {
@@ -153,5 +166,6 @@ export {
     sendAllScootersLimited,
     sendAllCustomers,
     sendAllTrips,
-    sendTripStart
+    sendTripStart,
+    sendTripEnd
 };

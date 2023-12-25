@@ -79,7 +79,7 @@ async function putTrip(tripId: number, data: TripState, token: string) {
 async function getScooterPosition(scooterId: number) {
     const result = await _httpGet(`${EnvVars.ApiHost}v1/scooter/${scooterId}`);
 
-    return [result.data.positionX, result.data.positionY];
+    return [result.data.positionY, result.data.positionX];
 }
 
 async function getTrip(tripId: number) {
@@ -100,7 +100,7 @@ async function postTrip(data: TripState, token: string) {
 
 // **** Exports **** //
 
-export {
+export default {
     putScooter,
     putCustomer,
     putTrip,

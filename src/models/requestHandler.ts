@@ -5,8 +5,10 @@ import { requestVerification } from './requestVerification';
 import { messageRouter } from './messageRouter';
 import { clientStore } from '../server';
 import Client from '../classes/Client';
-import { systemState } from './systemState';
-import { sendScooter, sendCustomer } from './outgoingMsgs';
+import { adminJwt, systemState } from './systemState';
+import { sendScooter, sendCustomer, sendTripEnd } from './outgoingMsgs';
+import apiRequests from './apiRequests';
+import { TripState } from '@src/types/ClientStates';
 
 // **** Variables **** //
 
@@ -30,8 +32,9 @@ function _onClose(this: {client: Client}) {
         sendScooter({
             message: "scooter",
             scooterId,
-            remove: true
+            available: false
         });
+        apiRequests.putScooter(scooterId, {connected: false}, adminJwt)
     } else if (this.client.type === "customer" && typeof customerId === "number") {
         systemState.removeClientData("customers", customerId);
         sendCustomer({
@@ -39,6 +42,28 @@ function _onClose(this: {client: Client}) {
             customerId,
             remove: true
         });
+        apiRequests.putCustomer(customerId, {connected: false}, adminJwt);
+
+        // remove all trips for customer
+        for (const trip of systemState.getState("trips") as Array<TripState>) {
+            if (
+                trip &&
+                trip.customerId === customerId &&
+                trip.tripId &&
+                trip.scooterId
+            ) {
+                sendTripEnd(this.client, {
+                    tripId: trip.tripId,
+                    customerId: trip.customerId,
+                    scooterId: trip.scooterId
+                });
+                apiRequests.putTrip(trip.tripId, {
+                    timeEnded: new Date().toISOString()
+                }, adminJwt)
+
+                systemState.removeClientData("trips", trip.tripId);
+            }
+        }
     }
 
     // remove client from the client store

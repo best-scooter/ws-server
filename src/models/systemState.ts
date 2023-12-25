@@ -46,21 +46,21 @@ function _stateFetch(token: string) {
         }
     });
 
-    _httpGetAll("v1/trip", token).then((tripData: any) => {
-        for (const trip of tripData.data) {
-            if (
-                validate(trip, tripStateSchema).valid && 
-                (
-                    // if time ended is not yet set or if its set earlier than now
-                    // interpret the trip as currently ongoing
-                    trip.timeEnded === null ||
-                    Date.parse(trip.timeEnded) > Date.now()
-                )
-            ) {
-                systemState.addClientData("trips", trip);
-            }
-        }
-    });
+    // _httpGetAll("v1/trip", token).then((tripData: any) => {
+    //     for (const trip of tripData.data) {
+    //         if (
+    //             validate(trip, tripStateSchema).valid && 
+    //             (
+    //                 // if time ended is not yet set or if its set earlier than now
+    //                 // interpret the trip as currently ongoing
+    //                 trip.timeEnded === null ||
+    //                 Date.parse(trip.timeEnded) > Date.now()
+    //             )
+    //         ) {
+    //             systemState.addClientData("trips", trip);
+    //         }
+    //     }
+    // });
 }
 
 // **** Setup **** //

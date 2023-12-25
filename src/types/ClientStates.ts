@@ -1,12 +1,13 @@
 type CustomerState = {
-    customerId: number,
-    customerEmail: string,
-    positionX: number,
-    positionY: number
+    customerId?: number,
+    customerEmail?: string,
+    positionX?: number,
+    positionY?: number,
+    connected?: boolean
 }
 
 type ScooterState = {
-    scooterId: number,
+    scooterId?: number,
     positionX?: number,
     positionY?: number,
     battery?: number,
@@ -14,7 +15,8 @@ type ScooterState = {
     available?: boolean,
     decomissioned?: boolean,
     beingServiced?: boolean,
-    disabled?: boolean
+    disabled?: boolean,
+    connected?: boolean
 }
 
 type TripState = {

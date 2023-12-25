@@ -11,14 +11,7 @@ import {
     dataTripEndSchema
 } from "../jsonschemas/messageData";
 import Client from "../classes/Client";
-import {
-    putCustomer,
-    putScooter,
-    putTrip,
-    getTrip,
-    getScooterPosition,
-    postTrip
-} from './apiRequests'
+import apiRequests from './apiRequests'
 import { adminJwt, systemState } from "./systemState";
 import {
     sendScooter,
@@ -138,16 +131,16 @@ async function receiveTripStart(data: any, client: Client) {
         return;
     }
 
-    const position = await getScooterPosition(data.scooterId);
+    const position = await apiRequests.getScooterPosition(data.scooterId);
     const arrangedData = {
         tripId: 0,
         scooterId: data.scooterId,
         customerId: data.customerId,
         startPosition: position
     };
-    const postResult = await postTrip(arrangedData, client.token);
+    const postResult = await apiRequests.postTrip(arrangedData, client.token);
     const tripId = postResult.tripId;
-    const tripData = await getTrip(tripId);
+    const tripData = await apiRequests.getTrip(tripId);
 
     sendTrip(tripData);
     sendTripStart(client, postResult);
