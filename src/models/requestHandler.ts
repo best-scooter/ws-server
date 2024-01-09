@@ -8,7 +8,7 @@ import Client from '../classes/Client';
 import { adminJwt, systemState } from './systemState';
 import { sendScooter, sendCustomer, sendTripEnd } from './outgoingMsgs';
 import apiRequests from './apiRequests';
-import { TripState } from '@src/types/ClientStates';
+import { TripState } from '../types/ClientStates';
 
 // **** Variables **** //
 

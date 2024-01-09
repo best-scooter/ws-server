@@ -6,7 +6,7 @@ import type { ClientInfo } from "../types/ClientInfo";
 
 import EnvVars from "../constants/EnvVars";
 import { scooterPayloadSchema, customerPayloadSchema, adminPayloadSchema } from "../jsonschemas/payloadData";
-import apiRequests from "@src/models/apiRequests";
+import apiRequests from "../models/apiRequests";
 
 // **** Variables **** //
 

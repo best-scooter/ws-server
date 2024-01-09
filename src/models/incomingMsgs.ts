@@ -21,7 +21,8 @@ import {
     sendAllScootersLimited,
     sendAllCustomers,
     sendAllTrips,
-    sendTripStart
+    sendTripStart,
+    sendTripEnd
 } from "./outgoingMsgs";
 import { MessageData } from "../types/MessageData";
 import { TripState } from "../types/ClientStates";
@@ -155,25 +156,13 @@ function receiveTripEnd(data: any, client: Client) {
         );
         return;
     }
-
-    const tripId = data.tripId;
-    // const now = new Date().toJSON()
-
-    // console.log(tripId)
-    // console.log(now)
-
-    // putTrip(
-    //     tripId,
-    //     {
-    //         timeEnded: now
-    //     },
-    //     client.token
-    // );
-    sendTrip({
-        trip: tripId,
-        remove: true
+    
+    sendTripEnd(client, {
+        tripId: data.tripId,
+        scooterId: data.scooterId,
+        customerId: data.customerId
     })
-    systemState.removeClientData("trips", tripId);
+    systemState.removeClientData("trips", data.tripId);
 }
 
 // **** Exports **** //

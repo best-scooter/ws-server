@@ -151,8 +151,9 @@ function sendTripStart(client: Client, responseBody: any) {
 
 function sendTripEnd(client: Client, data: {tripId: number, customerId: number, scooterId: number}) {
     _send("trip", JSON.stringify({
-        message: "tripEnd",
-        ...data
+        message: "trip",
+        ...data,
+        timeEnded: new Date().toISOString()
     }));
 }
 
