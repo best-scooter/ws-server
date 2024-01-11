@@ -10,7 +10,7 @@ import { ScooterState } from "../types/ClientStates";
 // **** Helper functions **** //
 
 function _send(list: string, message: string) {
-    logger.info(`Sending subscribers "${list}" message: ${message}`);
+    // logger.info(`Sending subscribers "${list}" message: ${message}`);
 
     for (const subscriber of clientStore._subscribed[list]) {
         subscriber.connection.send(message);
