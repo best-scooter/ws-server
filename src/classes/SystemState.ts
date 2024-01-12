@@ -99,7 +99,8 @@ class SystemState {
 
         const stateEntryIndex = data[idKey];
 
-        if (validate(
+        if (
+            validate(
                 stateArray[stateEntryIndex],
                 schema,
                 { required: true }

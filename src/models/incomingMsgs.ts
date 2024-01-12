@@ -86,9 +86,8 @@ function receiveScooter(data: any, client: Client) {
         return;
     }
 
-    sendScooter(data);
-    // putScooter(data.scooterId, data, client.token);
     systemState.addClientData("scooters", data);
+    sendScooter(data);
 }
 
 function receiveCustomer(data: any, client: Client) {
@@ -100,10 +99,10 @@ function receiveCustomer(data: any, client: Client) {
         return;
     }
 
-    // putCustomer(data.scooterId, data, client.token);
-    sendCustomer(data);
     systemState.addClientData("customers", data);
+    sendCustomer(data);
 }
+
 
 function receiveTrip(data: any, client: Client) {
     if (!(validate(data, dataTripSchema).valid)) {
@@ -119,8 +118,8 @@ function receiveTrip(data: any, client: Client) {
     const tripState = systemState.getState("trips")[data.tripId];
     const arrangedData = _arrangeRoute(data as MessageData, tripState as TripState);
 
-    sendTrip(arrangedData);
     systemState.addClientData("trips", arrangedData);
+    sendTrip(arrangedData);
 }
 
 async function receiveTripStart(data: any, client: Client) {
@@ -143,9 +142,9 @@ async function receiveTripStart(data: any, client: Client) {
     const tripId = postResult.tripId;
     const tripData = await apiRequests.getTrip(tripId);
 
+    systemState.addClientData("trips", tripData);
     sendTrip(tripData);
     sendTripStart(client, postResult);
-    systemState.addClientData("trips", tripData);
 }
 
 function receiveTripEnd(data: any, client: Client) {
