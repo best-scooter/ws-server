@@ -8,6 +8,8 @@ Det första flödet handlar om att skicka uppdateringar till WebSocket-servern f
 
 Det andra flödet är till för att admins och kunder ska kunna abonnera på information som de behöver för sin användning av systemet, huvudsakligen för att få en karta som uppdateras i realtid.
 
+Inställningar för simulation görs i .env-filer. Använd `env/example.env` som mall och namnge den efter NODE_ENV, t.ex. `development.env` eller `production.env`.
+
 ## Available Scripts
 
 ### `npm run dev`
