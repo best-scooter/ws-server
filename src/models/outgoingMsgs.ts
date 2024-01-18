@@ -40,9 +40,7 @@ function _sendLimitedScooter(data: any) {
     if (!scooter) {
         sendLimitedData = true;
         limitedData["remove"] = true;
-    }
-
-    if (!sendLimitedData) {
+    } else {
         for (const [key, value] of Object.entries(data)) {
             if (
                 key === "remove" ||
@@ -51,8 +49,6 @@ function _sendLimitedScooter(data: any) {
                     ["positionX", "positionY", "battery"].includes(key)
                 )
             ) {
-                console.log("key", key)
-                console.log("value", value)
                 sendLimitedData = true;
                 limitedData[key] = value;
             }
@@ -69,7 +65,7 @@ function _isScooterReadyToUse (scooter: ScooterState) {
 return (
         scooter.available &&
         scooter.battery &&
-        scooter.battery >= 0.5 &&
+        scooter.battery >= 0.3 &&
         !(scooter.beingServiced) &&
         !(scooter.charging) &&
         !(scooter.decomissioned) &&
@@ -120,7 +116,6 @@ function sendAllScootersLimited(client: Client) {
 
     for (const scooter of scooters) {
         if (scooter === undefined) { continue; }
-
 
         if (_isScooterReadyToUse(scooter)) {
             const message = JSON.stringify({

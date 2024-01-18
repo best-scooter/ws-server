@@ -43,10 +43,9 @@ Kör production-builden (måste vara byggt först).
 Kör production-builden med en annan .env-fil.
 
 ### `npm run docker:build`
-
-Bygger appen och bygger imagen.
-
 ### `npm run docker:push`
+
+Bygger appen och bygger imagen. Ändra docker tag i package.json efter behov.
 
 Pushar imagen till ACR.
 

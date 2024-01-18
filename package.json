@@ -10,9 +10,7 @@
     "test": "nodemon --config ./spec/nodemon.json",
     "test:no-reloading": "npx ts-node --files -r tsconfig-paths/register ./spec",
     "docker:build": "npm run build && docker build -t missivaeak/bestscooter_ws-server .",
-    "docker:push": "docker push missivaeak/bestscooter_ws-server",
-    "docker:build:acr": "npm run build && docker build -t bestscooter.azurecr.io/ws-server .",
-    "docker:push:acr": "az acr login --name bestscooter && docker push bestscooter.azurecr.io/ws-server"
+    "docker:push": "docker push missivaeak/bestscooter_ws-server"
   },
   "nodemonConfig": {
     "watch": [
